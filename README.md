@@ -42,7 +42,8 @@
     - Click on the "Gear" and then "Global Settings" to go to the Global Settings page.  
     - Click on Webhooks and paste the canary-block URL from step 4 into the "Generic" option and click "Add."  
 ### Using/Testing
-You can now trigger a Canary event and simply open a file browser to the https://canary-request.organization.workers.dev URL to view the live IP list.  
+You can now trigger a Canary event
+    - Open a file browser to the https://canary-request.organization.workers.dev URL to view the live IP list.  
 If you need to delete or clean up any IP list database entries:  
     - Log in to your Cloudflare dashboard  
     - Choose your account  
