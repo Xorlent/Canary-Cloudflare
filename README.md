@@ -40,7 +40,9 @@
      - Copy and paste the full contents of the canary-request.js file into the editor window and click "Save and deploy."  
 6. Log in to your [Canary account](https://canary.tools)  
     - Click on the "Gear" and then "Global Settings" to go to the Global Settings page.  
-    - Click on Webhooks and paste the canary-block URL from step 4 into the "Generic" option and click "Add."  
+    - Click on Webhooks and paste the canary-block URL from step 4 into the "Generic" option.  
+    - Select custom headers and add a header called, "auth" with a value of "canhasauthenticated" and click "Add."  
+      - You can easily change this default authentication value by editing the JavaScript within the canary-block Worker.  
 ### Using/Testing
 - You can now trigger a Canary event  
   - Alternately, you can re-open the code editor for the canary-block Worker (Setup step 4) and perform a POST request using the supplied ExampleRequest.json.  
