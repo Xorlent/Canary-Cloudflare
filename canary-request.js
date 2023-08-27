@@ -17,9 +17,11 @@ async function handleRequest(request) {
     
     const length = keys.length
     var content = keys[0].name
-
-    for (let i = 1; i < length; i++) {
-      content = content + `\n` + keys[i].name
+    
+    if (length > 1) {
+      for (let i = 1; i < length; i++) {
+        content = content + `\n` + keys[i].name
+      }
     }
     return new Response(content, {status: 200})
   }
