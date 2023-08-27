@@ -25,19 +25,19 @@
         - Events from any other Canary will be ignored.  Generally, you will only want to add IPs for a public-facing Canary.  
       - Click "Save and deploy."  
 5. Click "Create application"  
-  - Click the "Create Worker" button  
-  - Enter "canary-request" for the name and click "Deploy"
-  - IMPORTANT: Make note of the URL shown on the Congratulations page under, "Preview your worker."  
-    - It will look something like https://canary-request.organization.workers.dev  
-    - You will need this URL for any device (eg. firewall) or program that will be consuming this IP list  
-  - Click "Configure Worker"  
-    - Click "Settings" above the summary section of the page  
-    - Click the "Variables" menu option  
-    - Under "KV Namespace Bindings" click "Add binding"  
-    - Enter "canaryblocks" for the variable name and select "Canary-Blocks" for the KV namespace  
-    - Click "Save and deploy"  
-  - Click on the "Quick Edit" button at the top right area of the page  
-  - Copy and paste the full contents of the canary-request.js file into the editor window and click "Save and deploy."  
+    - Click the "Create Worker" button  
+    - Enter "canary-request" for the name and click "Deploy"
+    - IMPORTANT: Make note of the URL shown on the Congratulations page under, "Preview your worker."  
+      - It will look something like https://canary-request.organization.workers.dev  
+      - You will need this URL for any device (eg. firewall) or program that will be consuming this IP list  
+    - Click "Configure Worker"  
+      - Click "Settings" above the summary section of the page  
+      - Click the "Variables" menu option  
+      - Under "KV Namespace Bindings" click "Add binding"  
+      - Enter "canaryblocks" for the variable name and select "Canary-Blocks" for the KV namespace  
+      - Click "Save and deploy"  
+   - Click on the "Quick Edit" button at the top right area of the page  
+     - Copy and paste the full contents of the canary-request.js file into the editor window and click "Save and deploy."  
 6. Log in to your [Canary account](https://canary.tools)  
   - Click on the "Gear" and then "Global Settings" to go to the Global Settings page.  
   - Click on Webhooks and paste the canary-block URL from step 4 into the "Generic" option and click "Add."  
