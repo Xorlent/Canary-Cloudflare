@@ -1,5 +1,5 @@
 # Canary-Cloudflare
-## Use Cloudflare workers to receive Thinkst Canary webhooks and publish a real-time IP blocklist
+## Cloudflare workers to receive Thinkst Canary webhooks and publish real-time IP blocklist
 ### Requirements
 1. Thinkst Canary account with at least one Canary (https://canary.tools/)  
 2. A Cloudflare account (https://www.cloudflare.com/)  
