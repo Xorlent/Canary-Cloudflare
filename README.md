@@ -1,8 +1,9 @@
 # Canary-Cloudflare
 ## Cloudflare workers to receive Thinkst Canary webhooks and publish real-time IP blocklist
 ### Requirements
-1. Thinkst Canary account with at least one Canary (https://canary.tools/)  
-2. A Cloudflare account (https://www.cloudflare.com/)  
+1. Thinkst Canary account with at least one Canary (https://canary.tools/)
+   - It looks like it would also be possible with [Opencanary](https://github.com/thinkst/opencanary), but this has not been tested  
+3. A Cloudflare account (https://www.cloudflare.com/)  
 ### Setup
 1. Log in to your [Cloudflare dashboard](https://dash.cloudflare.com), choose your account, select "Workers & Pages" and click "KV."  
 2. Click "Create a namespace," enter "Canary-Blocks" for the name, and click "Add."  
