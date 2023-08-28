@@ -22,7 +22,7 @@
     - Click on the "Quick Edit" button at the top right area of the page  
       - Copy and paste the full contents of the canary-block.js file into the editor window  
       - Edit the "Perimeter" value on line 6 to match the Canary device name whose events you want to add to the IP block list.  
-        - Events from any other Canary will be ignored.  Generally, you will only want to add IPs for a public-facing Canary.  
+        - Events from any other Canary will be ignored.  Generally, you will only want to register events for a public-facing Canary.  
       - Click "Save and deploy."  
 5. Click "Create application"  
     - Click the "Create Worker" button  
