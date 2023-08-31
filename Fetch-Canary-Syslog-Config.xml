@@ -2,8 +2,8 @@
 <configuration>
   <cloudflare>
     <!-- Update/edit the values below according to your Cloudflare "canary-receiver" worker settings. -->
-    <fqdn key="URL" value="https://canary-request-syslog.org.workers.dev"/>
-    <port key="auth" value="canhasauthenticated"/>
+    <URL key="URL" value="https://canary-request-syslog.org.workers.dev"/>
+    <auth key="auth" value="canhasauthenticated"/>
   </cloudflare>
   <syslog>
     <!-- Update/edit the values below according to your specific Syslog server settings.  No support for Syslog TCP. -->
