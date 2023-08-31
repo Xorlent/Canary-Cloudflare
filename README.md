@@ -1,8 +1,8 @@
 # Canary-Cloudflare
-## Cloudflare workers to:
-##      Receive Thinkst Canary webhooks
-##      parse, create, and buffer syslog messages
-##      publish a real-time IP blocklist
+### Cloudflare workers to:
+    - Receive Thinkst Canary webhooks
+    - parse, create, and buffer syslog messages
+    - publish a real-time IP blocklist
 ### Requirements
 1. Thinkst Canary account with at least one Canary (https://canary.tools/)
    - It looks like it may also be possible with [Opencanary](https://github.com/thinkst/opencanary), but this has not been tested  
