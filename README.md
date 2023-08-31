@@ -6,7 +6,7 @@
 ### Requirements
 1. Thinkst Canary account with at least one Canary (https://canary.tools/)
    - It looks like it may also be possible with [Opencanary](https://github.com/thinkst/opencanary), but this has not been tested  
-3. A Cloudflare account (https://www.cloudflare.com/)  
+3. A Cloudflare account (https://www.cloudflare.com/).  Don't have one?  This solution can be deployed to even a free account!  
 ### Setup
 1. Log in to your [Cloudflare dashboard](https://dash.cloudflare.com), choose your account, select "Workers & Pages" and click "KV."  
 2. Click "Create a namespace," enter "Canary-Blocks" for the name, and click "Add."  
