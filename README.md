@@ -12,7 +12,7 @@
    - It may also be possible with [Opencanary](https://github.com/thinkst/opencanary), but this has not been tested.  
 2. A Cloudflare account (https://www.cloudflare.com/)
    - Don't have one?  This solution can be deployed to even a free account!  
-### Setup
+### Cloudflare Setup
 1. Log in to your [Cloudflare dashboard](https://dash.cloudflare.com), choose your account, select "Workers & Pages" and click "KV."  
 2. Click "Create a namespace," enter "Canary-Blocks" for the name, and click "Add."  
 3. Click "Create a namespace," enter "Canary-Events" for the name, and click "Add."  
@@ -67,12 +67,20 @@
       - Click "Save and deploy"  
    - Click on the "Quick Edit" button at the top right area of the page  
      - Copy and paste the full contents of the canary-request-syslog.js file into the editor window
-     - Edit _authString_ to be a unique string value.  This will be used with the Fetch-Canary-Syslog.ps1 script (COMING SOON).
-8. Log in to your [Canary account](https://canary.tools)  
+     - Edit _authString_ to be a unique string value.  This will be used with the Fetch-Canary-Syslog.ps1 script
+### Canary Setup
+1. Log in to your [Canary account](https://canary.tools)  
     - Click on the "Gear" and then "Global Settings" to go to the Global Settings page.  
-    - Click on Webhooks and paste the canary-block URL from step 5 into the "Generic" option.  
+    - Click on Webhooks and paste the canary-block URL from Cloudflare Setup step 5 into the "Generic" option.  
     - Select custom headers and add a header called, "auth" with a value of "canhasauthenticated" [screenshot](https://github.com/Xorlent/Canary-Cloudflare/blob/main/CanaryWebhookConfig.png) and click "Add."  
-      - You can easily change this default authentication value by editing the JavaScript within the canary-block Worker.  
+      - You can easily change this default authentication value by editing the JavaScript within the canary-receiver Worker.
+### Powershell Syslog Fetcher Setup
+1. Download Canary-Fetch-Syslog.ps1 and Canary-Fetch-Syslog-Config.xml  
+2. Right-click each file, select Properties, check "Unblock" and click "Ok"  
+3. Edit the xml file in Notepad according to your environment  
+4. Save the files to an appropriate location for execution  
+5. Create a scheduled task to execute Canary-Fetch-Syslog.ps1 as often as you would like, and ensure the "Run In" location is set  
+
 ### Using/Testing
 - You can now trigger a Canary event  
   - Alternately, you can re-open the code editor for the canary-receiver Worker (Setup step 5) and perform a POST request using the supplied ExampleRequest.json.  
