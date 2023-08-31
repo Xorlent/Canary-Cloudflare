@@ -18,7 +18,7 @@ async function handleRequest(request) {
       const values = await canaryevents.list()
       const keys = values.keys;
 
-      // if no data to send
+      // no data to send
       if (!keys) {
         return new Response(``, {status: 204})
         }
@@ -29,7 +29,9 @@ async function handleRequest(request) {
       if (length > 1) {
         for (let i = 1; i < length; i++) {
           content = content + `\n` + keys[i].name
+          await canaryevents.delete(keys[i].name)
         }
+      await canaryevents.delete(keys[0].name)
       }
       return new Response(content, {status: 200})
     }
