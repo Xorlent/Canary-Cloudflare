@@ -3,6 +3,10 @@
     1. Receive Thinkst Canary webhooks
     2. Parse, create, and buffer syslog messages
     3. Publish a real-time IP blocklist
+### ...and a Powershell script to:
+    1. Fetch syslog events from the buffer
+    2. Push these events to a syslog UDP collector
+    
 ### Requirements
 1. Thinkst Canary account with at least one Canary (https://canary.tools/)
    - It may also be possible with [Opencanary](https://github.com/thinkst/opencanary), but this has not been tested.  
