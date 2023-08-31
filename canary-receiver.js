@@ -5,7 +5,7 @@ addEventListener('fetch', event => {
 
 // Change this to a unique value -- this will become the authentication header field "auth" string for the Canary generic webhook to use.
 // Note: Be careful not to use the " or $ character in this authentication string
-const authString = "icanhasauthentication"
+const authString = "canhasauthenticated"
 // Change to false to disable the Syslog parse/store routine
 const EnableSyslog = true
 // Change "BlockListCanary" to the name of a Canary you would like contributing to a IP blocklist.  Leave value as-is to disable.
