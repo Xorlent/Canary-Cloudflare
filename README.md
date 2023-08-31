@@ -31,7 +31,7 @@
       - Copy and paste the full contents of the canary-receiver.js file into the editor window  
       - Review the declared variables at the top of the script and adjust as desired/necessary for your environment.  
         - MyCanary should be set to the name of a public-facing Canary you would like to use to create your IP blocklist.
-        - Make note of the value you set for _authString_
+        - Make note of the value you set for _authString_ -- this is the auth value you configure for the Canary webhook custom header.
       - Click "Save and deploy."  
 6. Click "Create application"  
     - Click the "Create Worker" button  
