@@ -76,6 +76,8 @@
     - Click on Webhooks and paste the canary-block URL from Cloudflare Setup step 5 into the "Generic" option.  
     - Select custom headers and add a header called, "auth" with a value of "canhasauthenticated" [screenshot](https://github.com/Xorlent/Canary-Cloudflare/blob/main/CanaryWebhookConfig.png) and click "Add."  
       - You can easily change this default authentication value by editing the JavaScript within the canary-receiver Worker.
+### Abuseipdb Setup (optional)
+1. Get your API key and enter this value for the "abuseIPDBKey" variable in the Canary-Receiver CloudFlare worker JavaScript.  
 ### Powershell Syslog Fetcher Setup
 1. Download Canary-Fetch-Syslog.ps1 and Canary-Fetch-Syslog-Config.xml  
 2. Right-click each file, select Properties, check "Unblock" and click "Ok"  
