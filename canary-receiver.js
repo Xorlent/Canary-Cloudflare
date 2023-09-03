@@ -17,6 +17,11 @@ const MyCanary = "BlockListCanary"
 // Auto-purge blocked IP addresses after 6 months.
 const IPBlocklistTTL = 15552000
 
+// Have an abuseipdb.com account?  Report the incident!
+const abuseIPDBURL = "https://api.abuseipdb.com/api/v2/report?"
+// Edit this value to your account's authentication key value:
+const abuseIPDBKey = "yourkeyhere"
+
 const Months = ["zero", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 async function handleRequest(request) {
@@ -36,6 +41,7 @@ async function handleRequest(request) {
       const data = await request.json()
       let Timestamp = data.Timestamp
       let Payload = "n/a"
+      const MaliciousIP = data.SourceIP
 
       if (EnableSyslog) {
         let SyslogSplitDate = Timestamp.split("-")
@@ -47,6 +53,19 @@ async function handleRequest(request) {
         switch (true){
           case /Scan/.test(data.Description):
             SyslogPriority = "<116>";
+            if (abuseIPDBKey != "yourkeyhere") {
+              let CurrentDate = Date.now()
+              let ReportDate = CurrentDate.toISOString().split('T')[0]
+              let EventDesc = encodeURI(data.Description)
+              let AbuseIPRequest = `${abuseIPDBURL}ip=${MaliciousIP}&categories=14&comment=${EventDesc}%20${ReportDate}&key=${abuseIPDBKey}`
+              let RequestData = {
+                method: "POST",
+                headers: {
+                  "content-type": "text/html;charset=UTF-8",
+                },
+              };
+              await fetch(AbuseIPRequest, RequestData)
+            }
             break;
           case /Load/.test(data.Description):
             SyslogPriority = "<116>";
@@ -63,6 +82,21 @@ async function handleRequest(request) {
           case /Dummy/.test(data.Description):
             SyslogPriority = "<119>";
             break;
+          default:
+            if (abuseIPDBKey != "yourkeyhere") {
+              let CurrentDate = Date.now()
+              let ReportDate = CurrentDate.toISOString().split('T')[0]
+              let EventDesc = encodeURI(data.Description)
+              let AbuseIPRequest = `${abuseIPDBURL}ip=${MaliciousIP}&categories=15&comment=${EventDesc}%20${ReportDate}&key=${abuseIPDBKey}`
+              let RequestData = {
+                method: "POST",
+                headers: {
+                  "content-type": "text/html;charset=UTF-8",
+                },
+              };
+              await fetch(AbuseIPRequest, RequestData)
+            }
+            break;
         }
 
         Payload = `${SyslogPriority} ${SyslogMonth} ${SyslogSplitTime[0]} ${SyslogSplitDate[0]} ${SyslogSplitTime[1]} ${data.CanaryName}(${data.CanaryLocation}) CanaryEvent: ${data.Intro} | Desc: ${data.Description} | Port: ${data.CanaryPort} | RemoteIP: ${data.SourceIP} | PTR: ${data.ReverseDNS}`
@@ -71,7 +105,6 @@ async function handleRequest(request) {
       }
 
       if (data.CanaryName == MyCanary) {
-        const MaliciousIP = data.SourceIP
         // process  
         // Store in KV store (Key-Value store)
         await canaryblocks.put(MaliciousIP, Timestamp, {expirationTtl: IPBlocklistTTL})
