@@ -2,7 +2,8 @@
 ### Cloudflare workers to:
     1. Receive Thinkst Canary webhooks
     2. Parse, create, and buffer syslog messages
-    3. Publish a real-time IP blocklist
+    3. Submit applicable events to abuseipdb
+    4. Publish a real-time IP blocklist
 ### ...and a Powershell script to:
     1. Fetch syslog events from the buffer
     2. Push these events to a syslog UDP collector
@@ -11,7 +12,8 @@
 1. Thinkst Canary account with at least one Canary (https://canary.tools/)
    - It may also be possible with [Opencanary](https://github.com/thinkst/opencanary), but this has not been tested.  
 2. A Cloudflare account (https://www.cloudflare.com/)
-   - Don't have one?  This solution can be deployed to even a free account!  
+   - Don't have one?  This solution can be deployed to even a free account!
+3. (optional) An abuseipdb.com account to report events.  
 ### Cloudflare Setup
 1. Log in to your [Cloudflare dashboard](https://dash.cloudflare.com), choose your account, select "Workers & Pages" and click "KV."  
 2. Click "Create a namespace," enter "Canary-Blocks" for the name, and click "Add."  
