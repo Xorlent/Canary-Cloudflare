@@ -53,7 +53,7 @@ async function handleRequest(request) {
         switch (true){
           case /Scan/.test(data.Description):
             SyslogPriority = "<116>";
-            if (abuseIPDBKey != "yourkeyhere") {
+            if (abuseIPDBKey !== "yourkeyhere") {
               let CurrentDate = Date.now()
               let ReportDate = CurrentDate.toISOString().split('T')[0]
               let EventDesc = encodeURI(data.Description)
@@ -83,7 +83,7 @@ async function handleRequest(request) {
             SyslogPriority = "<119>";
             break;
           default:
-            if (abuseIPDBKey != "yourkeyhere") {
+            if (abuseIPDBKey !== "yourkeyhere") {
               let CurrentDate = Date.now()
               let ReportDate = CurrentDate.toISOString().split('T')[0]
               let EventDesc = encodeURI(data.Description)
