@@ -74,7 +74,7 @@
 1. Log in to your [Canary account](https://canary.tools)  
     - Click on the "Gear" and then "Global Settings" to go to the Global Settings page.  
     - Click on Webhooks and paste the canary-block URL from Cloudflare Setup step 5 into the "Generic" option.  
-    - Select custom headers and add a header called, "auth" with a value of "canhasauthenticated" [screenshot](https://github.com/Xorlent/Canary-Cloudflare/blob/main/CanaryWebhookConfig.png) and click "Add."  
+    - Select custom headers and add a header called, "auth" with a value of "canhasauthenticated" or the custom value you entered for _authString_ in step 5 [example screenshot](https://github.com/Xorlent/Canary-Cloudflare/blob/main/CanaryWebhookConfig.png) and click "Add."  
       - You can easily change this default authentication value by editing the JavaScript within the canary-receiver Worker.
 ### Abuseipdb Setup (optional)
 1. Get your API key and enter this value for the "abuseIPDBKey" variable in the Canary-Receiver CloudFlare worker JavaScript.  
