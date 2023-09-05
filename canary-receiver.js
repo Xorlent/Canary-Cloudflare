@@ -54,7 +54,7 @@ async function handleRequest(request) {
           case /Scan/.test(data.Description):
             SyslogPriority = "<116>";
             if (abuseIPDBKey !== "yourkeyhere") {
-              let CurrentDate = Date.now()
+              let CurrentDate = new Date()
               let ReportDate = CurrentDate.toISOString().split('T')[0]
               let EventDesc = encodeURI(data.Description)
               let AbuseIPRequest = `${abuseIPDBURL}ip=${MaliciousIP}&categories=14&comment=${EventDesc}%20${ReportDate}&key=${abuseIPDBKey}`
@@ -64,7 +64,7 @@ async function handleRequest(request) {
                   "content-type": "text/html;charset=UTF-8",
                 },
               };
-              await fetch(AbuseIPRequest, RequestData)
+              fetch(AbuseIPRequest, RequestData)
             }
             break;
           case /Load/.test(data.Description):
@@ -84,7 +84,7 @@ async function handleRequest(request) {
             break;
           default:
             if (abuseIPDBKey !== "yourkeyhere") {
-              let CurrentDate = Date.now()
+              let CurrentDate = new Date()
               let ReportDate = CurrentDate.toISOString().split('T')[0]
               let EventDesc = encodeURI(data.Description)
               let AbuseIPRequest = `${abuseIPDBURL}ip=${MaliciousIP}&categories=15&comment=${EventDesc}%20${ReportDate}&key=${abuseIPDBKey}`
@@ -94,7 +94,7 @@ async function handleRequest(request) {
                   "content-type": "text/html;charset=UTF-8",
                 },
               };
-              await fetch(AbuseIPRequest, RequestData)
+              fetch(AbuseIPRequest, RequestData)
             }
             break;
         }
