@@ -83,13 +83,19 @@
 2. Right-click each file, select Properties, check "Unblock" and click "Ok"  
 3. Edit the xml file in Notepad according to your environment  
 4. Save the files to an appropriate location for execution  
-5. Create a scheduled task to execute Canary-Fetch-Syslog.ps1 as often as you would like, and ensure the "Run In" location is set  
+5. Create a scheduled task to execute Canary-Fetch-Syslog.ps1 as often as you would like:
+   - Run whether user is logged in or not  
+   - Trigger: Daily, every 15 minutes  
+   - Program: powershell  
+   - Arguments: -file _Full\Path\To\Canary-Fetch-Syslog.ps1_  
+   - Start in: path to the Canary-Fetch-Syslog files  
 
 ### Using/Testing
 - You can now trigger a Canary event  
-  - Alternately, you can re-open the code editor for the canary-receiver Worker (Setup step 5) and perform a POST request using the supplied ExampleRequest.json.  
-    - Be sure to include the "auth" header value as you set in Setup step 6 (default: canhasauthenticated).  
-  - Open a file browser to the https://canary-request-blocklist.organization.workers.dev URL to view the live IP list.  
+  - Alternately, you can re-open the code editor for the canary-receiver Worker (setup step 5) and perform a POST request using the supplied ExampleRequest.json.  
+    - Be sure to include the _authString_ "auth" header value as you set in setup step 5 (default: canhasauthenticated).  
+  - Open a file browser to the https://canary-request-blocklist.organization.workers.dev URL to view the live IP list.
+    - Make sure the machine you're using is in the IP allowlist for the canary-request-blocklist worker.  
 - If you need to delete or clean up any IP list database entries:  
   - Log in to your Cloudflare dashboard  
   - Choose your account  
