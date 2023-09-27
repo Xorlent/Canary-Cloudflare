@@ -19,8 +19,6 @@ addEventListener('fetch', event => {
 
   // Have an abuseipdb.com account?  Report the incident!
   const abuseIPDBURL = "https://api.abuseipdb.com/api/v2/report?"
-  // Gather abuse confidence level info on the observed IP
-  const abuseIPCheck = "https://api.abuseipdb.com/api/v2/check?ipAddress="
   // Edit this value to your account's authentication key value:
   const abuseIPDBKey = "yourkeyhere"
 
