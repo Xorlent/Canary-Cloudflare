@@ -113,7 +113,7 @@ addEventListener('fetch', event => {
                 let CurrentDate = new Date()
                 let ReportDate = CurrentDate.toISOString().split('T')[0]
                 let EventDesc = encodeURI(data.Description)
-                let AbuseIPRequest = `${abuseIPDBURL}ip=${MaliciousIP}&categories=14&comment=${EventDesc}%20${ReportDate}&key=${abuseIPDBKey}`
+                let AbuseIPRequest = `${abuseIPDBURL}ip=${MaliciousIP}&categories=15&comment=${EventDesc}%20${ReportDate}&key=${abuseIPDBKey}`
                 let RequestData = {
                   method: "POST",
                   headers: {
