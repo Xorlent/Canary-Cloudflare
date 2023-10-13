@@ -79,16 +79,16 @@
 ### Abuseipdb Setup (optional)
 1. Get your API key and enter this value for the "abuseIPDBKey" variable in the Canary-Receiver CloudFlare worker JavaScript.  
 ### Powershell Syslog Fetcher Setup
-1. Download Canary-Fetch-Syslog.ps1 and Canary-Fetch-Syslog-Config.xml  
+1. Download Fetch-Canary-Syslog.ps1 and Fetch-Canary-Syslog-Config.xml  
 2. Right-click each file, select Properties, check "Unblock" and click "Ok"  
 3. Edit the xml file in Notepad according to your environment  
 4. Save the files to an appropriate location for execution  
-5. Create a scheduled task to execute Canary-Fetch-Syslog.ps1 as often as you would like:
+5. Create a scheduled task to execute Fetch-Canary-Syslog.ps1 as often as you would like:
    - Run whether user is logged in or not  
    - Trigger: Daily, every 15 minutes  
    - Program: powershell  
-   - Arguments: -file _Full\Path\To\Canary-Fetch-Syslog.ps1_  
-   - Start in: path to the Canary-Fetch-Syslog files  
+   - Arguments: -file _Full\Path\To\Fetch-Canary-Syslog.ps1_  
+   - Start in: path to the Fetch-Canary-Syslog files  
 
 ### Using/Testing
 - You can now trigger a Canary event  
