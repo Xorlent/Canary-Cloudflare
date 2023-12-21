@@ -14,8 +14,12 @@ async function handleRequest(request) {
   const clientIP = request.headers.get("CF-Connecting-IP")
   if(AllowedIPs.search(clientIP) > -1){
       try {
-        const values = await canaryblocks.list()
-        const keys = values.keys;
+        let values = await canaryblocks.list()
+        var keys = [...values.keys]
+        while(!values.list_complete){
+          values = await canaryblocks.list({ cursor: values.cursor })
+          keys.push(...values.keys)
+          }
     
         if (!keys) {
           return new Response(``, {status: 200})
